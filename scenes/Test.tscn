@@ -1,48 +1,30 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbva6oitpkc8n"]
+[gd_scene load_steps=15 format=3 uid="uid://dbva6oitpkc8n"]
 
 [ext_resource type="Texture2D" uid="uid://d1pe72orxu56l" path="res://images/Shibe4.png" id="1_2d1eg"]
 [ext_resource type="Script" path="res://scripts/MovieController.cs" id="1_8bbgx"]
 [ext_resource type="Texture2D" uid="uid://byilqr2kfokea" path="res://images/Shibe5.png" id="2_0cpmm"]
 [ext_resource type="FontFile" uid="uid://d27aopnoqse26" path="res://fonts/Montserrat-Medium.ttf" id="3_uo32c"]
+[ext_resource type="Shader" path="res://shaders/Mother.gdshader" id="5_3sco5"]
 
-[sub_resource type="Animation" id="Animation_o53d5"]
-resource_name = "Spin Doge"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Doge 1:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Doge 2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [6.28319, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Label:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -8), Vector2(-107, -8)]
-}
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a2i8j"]
+shader = ExtResource("5_3sco5")
+shader_parameter/screen_height = 640.0
+shader_parameter/amplitude = 0.5
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 2.0
+shader_parameter/amplitude_vertical = 0.0
+shader_parameter/frequency_vertical = 0.0
+shader_parameter/speed_vertical = 0.0
+shader_parameter/scroll_direction = Vector2(0, 10)
+shader_parameter/scrolling_speed = 0.08
+shader_parameter/enable_palette_cycling = false
+shader_parameter/palette_speed = 0.1
+
+[sub_resource type="Gradient" id="Gradient_kcxt8"]
+colors = PackedColorArray(0.469007, 0.964704, 0.183033, 1, 0, 0.416667, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6eruf"]
+gradient = SubResource("Gradient_kcxt8")
 
 [sub_resource type="Animation" id="Animation_ac8ge"]
 length = 0.001
@@ -83,11 +65,79 @@ tracks/2/keys = {
 "values": [Vector2(0, -8)]
 }
 
+[sub_resource type="Animation" id="Animation_o53d5"]
+resource_name = "Spin Doge"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Doge 1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Doge 2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6.28319, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -8), Vector2(-107, -8), Vector2(0, -8)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j5l2h"]
 _data = {
 "RESET": SubResource("Animation_ac8ge"),
 "Spin Doge": SubResource("Animation_o53d5")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_15u8r"]
+shader = ExtResource("5_3sco5")
+shader_parameter/screen_height = 500.0
+shader_parameter/amplitude = 0.075
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 2.0
+shader_parameter/amplitude_vertical = 0.0
+shader_parameter/frequency_vertical = 0.0
+shader_parameter/speed_vertical = 0.0
+shader_parameter/scroll_direction = Vector2(0, 0)
+shader_parameter/scrolling_speed = 0.08
+shader_parameter/enable_palette_cycling = false
+shader_parameter/palette_speed = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tfm28"]
+shader = ExtResource("5_3sco5")
+shader_parameter/screen_height = 32.0
+shader_parameter/amplitude = 0.075
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 2.0
+shader_parameter/amplitude_vertical = 0.0
+shader_parameter/frequency_vertical = 0.0
+shader_parameter/speed_vertical = 0.0
+shader_parameter/scroll_direction = Vector2(0, 0)
+shader_parameter/scrolling_speed = 0.08
+shader_parameter/enable_palette_cycling = false
+shader_parameter/palette_speed = 0.1
 
 [sub_resource type="LabelSettings" id="LabelSettings_gsg0a"]
 font = ExtResource("3_uo32c")
@@ -104,6 +154,18 @@ script = ExtResource("1_8bbgx")
 _numLoops = 2
 metadata/movie_file = "E:\\Videos\\Waifuarts Renders\\test\\test.png"
 
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_a2i8j")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_6eruf")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Spin Doge"
 libraries = {
@@ -111,11 +173,13 @@ libraries = {
 }
 
 [node name="Doge 1" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_15u8r")
 position = Vector2(12, 16)
 scale = Vector2(0.0116897, 0.0116897)
 texture = ExtResource("2_0cpmm")
 
 [node name="Doge 2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_tfm28")
 position = Vector2(52, 16)
 scale = Vector2(0.0116897, 0.0116897)
 texture = ExtResource("1_2d1eg")
