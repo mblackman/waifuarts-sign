@@ -30,3 +30,7 @@ project/assembly_name="Waifu Arts Sign"
 movie_writer/mjpeg_quality=1.0
 movie_writer/movie_file="E:/Workspace/WaifuArts Sign/renders/test.png"
 movie_writer/fps=24
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
