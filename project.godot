@@ -33,4 +33,5 @@ movie_writer/fps=24
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
+renderer/rendering_method="mobile"
+renderer/rendering_method.web="mobile"
